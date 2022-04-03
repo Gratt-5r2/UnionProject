@@ -8,4 +8,4 @@ Choose between them and create universal plugins for all versions of the game.
 
 ### Create your plugin
 The main thing is that this project is adapted for distribution on steam.
-Start creating your plugin in **Wiki**.
+Start creating your plugin in [wiki](https://github.com/Gratt-5r2/UnionProject/wiki).
