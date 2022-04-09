@@ -65,14 +65,6 @@ namespace Vdfs32 {
   ASTAPI long vdf_regvol( const char* volname );
 
 
-  // collects a physical files list and returns their count
-  VDFAPI long vdf_filelist_physical( char**& list );
-
-
-  // collects a virtual files list and returns their count
-  VDFAPI long vdf_filelist_virtual( char**& list );
-
-
   // get last system error in VDFS
   VDFAPI long vdf_getlasterror( char* error );
 

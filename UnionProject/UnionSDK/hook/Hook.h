@@ -16,7 +16,8 @@ namespace UnionCore {
 
   enum HookType {
     Hook_Detours,
-    Hook_CallPatch
+    Hook_CallPatch,
+    Hook_Auto = 0x1000
   };
 
   struct ASTAPI HookInformation {
@@ -54,7 +55,7 @@ namespace UnionCore {
 
 #define CreateHookByName( from, to, type ) CreateHook( UnionCore::FindEngineAddress( #from, typeid( to ).name() ), to, type )
 #define Hook auto&
-#define base this->*
+#define Base this->*
 } // namespace UnionCore
 
 #endif // __UNION_HOOK_H__

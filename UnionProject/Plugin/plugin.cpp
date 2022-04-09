@@ -1,7 +1,7 @@
 #include "plugin.h"
 #include "UnionAfx.h"
 
-extern ASTAPI UnionCore::TSaveLoadGameInfo UnionCore::SaveLoadGameInfo;
+extern cppimport UnionCore::TSaveLoadGameInfo UnionCore::SaveLoadGameInfo;
 
 using namespace Common;
 using namespace UnionCore;

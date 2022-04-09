@@ -10,6 +10,9 @@
 #pragma warning(disable:4005)
 #pragma warning(disable:6258)
 
+#pragma comment(lib, "shw32.lib")
+#pragma comment(lib, "vdfs32g.lib")
+
 #define ASTAPI __declspec(dllimport)
 #include "utils/Macro.h"
 #include "utils/Types.h"

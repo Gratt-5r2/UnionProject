@@ -1242,7 +1242,6 @@
     <ClInclude Include="UnionSDK\utils\Macro.h" />
     <ClInclude Include="UnionSDK\utils\Types.h" />
     <ClInclude Include="UnionSDK\vdfs\Vdfs.h" />
-    <ClInclude Include="UnionSDK\vdfs\VdfsBase.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
