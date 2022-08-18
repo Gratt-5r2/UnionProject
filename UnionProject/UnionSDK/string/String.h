@@ -263,6 +263,10 @@ namespace Common {
     bool_t MatchesMask( const CStringA& mask ) const;
     bool_t StartWith( const CStringA& cmp ) const;
     bool_t EndWith( const CStringA& cmp ) const;
+    bool_t StartWithI( const CStringA& cmp )  const;
+    bool_t EndWithI( const CStringA& cmp )  const;
+    CStringA& PadLeft( const uint& length, const char& sym = ' ' );
+    CStringA& PadRight( const uint& length, const char& sym = ' ' );
     CStringA GetWord( const CStringA& mask = " \t", const int32& num = 1 ) const;
     CStringA GetWordEx( const CStringA& mask = " \t", const int32& num = 1, const uint32& offset = 0, uint32* idx = Null ) const;
     CStringA GetPattern( const CStringA& lmask, const CStringA& rmask, const int32& num = 1 ) const;
@@ -373,6 +377,10 @@ namespace Common {
     bool_t MatchesMask( const CStringW& mask ) const;
     bool_t StartWith( const CStringW& cmp ) const;
     bool_t EndWith( const CStringW& cmp ) const;
+    bool_t StartWithI( const CStringW& cmp )  const;
+    bool_t EndWithI( const CStringW& cmp )  const;
+    CStringW& PadLeft( const uint& length, const wchar_t& sym = ' ' );
+    CStringW& PadRight( const uint& length, const wchar_t& sym = ' ' );
     CStringW GetWord( const CStringW& mask = L" \t", const int32& num = 1 ) const;
     CStringW GetWordEx( const CStringW& mask = L" \t", const int32& num = 1, const uint32& offset = 0, uint32* idx = Null ) const;
     CStringW GetPattern( const CStringW& lmask, const CStringW& rmask, const int32& num = 1 ) const;

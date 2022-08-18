@@ -318,7 +318,7 @@ namespace Gothic_I_Classic {
     typedef enum oEFightAction {
       NPC_FIGHTMOVE_NOTINITIALISED,
       NPC_FIGHTMOVE_RUN,
-      NPC_FIGHTMOVE_RUNBACK, Enable
+      NPC_FIGHTMOVE_RUNBACK,
       NPC_FIGHTMOVE_JUMPBACK,
       NPC_FIGHTMOVE_TURN,
       NPC_FIGHTMOVE_STRAFE,
