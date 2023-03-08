@@ -3,6 +3,7 @@
 
 #ifndef __ZMACRO_H__VER0__
 #define __ZMACRO_H__VER0__
+#include <crtversion.h>
 
 namespace Gothic_I_Classic {
 #define zRELEASE( obj ) { (obj)->Release(); obj = NULL; }
@@ -173,10 +174,10 @@ namespace Gothic_I_Classic {
     return new className;                                                                     \
   }
 
-#if defined(__cplusplus) && __cplusplus > 199711L
+#if defined(_VC_CRT_MAJOR_VERSION) && defined(_MSVC_LANG) && _VC_CRT_MAJOR_VERSION > 10 && _MSVC_LANG > 199711L
 #define InheritableInterfaceObject zIInheritableInterfaceObject&&
 #else
-#define zIInheritableInterfaceObject zIInheritableInterfaceObject
+#define InheritableInterfaceObject zIInheritableInterfaceObject
 #endif
 
   struct zIInheritableInterfaceObject {};

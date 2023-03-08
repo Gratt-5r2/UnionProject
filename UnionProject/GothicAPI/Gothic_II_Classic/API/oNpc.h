@@ -714,7 +714,7 @@ namespace Gothic_II_Classic {
     zVEC3 soundPosition;                          // sizeof 0Ch    offset 960h
     zCPlayerGroup* playerGroup;                   // sizeof 04h    offset 96Ch
 
-    void oCNpc_OnInit()                                                                          zCall( 0x0081FFC1 );
+    void oCNpc_OnInit()                                                                          zCall( 0x006CF750 );
     int IsWaitingForAnswer()                                                                     zCall( 0x0065FDA0 );
     int SetCurrentAnswer( int, int, oCNpc* )                                                     zCall( 0x0065FDF0 );
     int EV_Ask( oCMsgConversation* )                                                             zCall( 0x00660310 );

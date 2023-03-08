@@ -683,7 +683,7 @@ namespace Gothic_I_Addon {
     zVEC3 soundPosition;                          // sizeof 0Ch    offset A30h
     zCPlayerGroup* playerGroup;                   // sizeof 04h    offset A3Ch
 
-    void oCNpc_OnInit()                                                                          zCall( 0x00812F90 );
+    void oCNpc_OnInit()                                                                          zCall( 0x006BB9F0 );
     void SetBloodEmitter( zSTRING )                                                              zCall( 0x00640E90 );
     void SetBloodTexture( zSTRING )                                                              zCall( 0x00641000 );
     int IsWaitingForAnswer()                                                                     zCall( 0x00658BA0 );

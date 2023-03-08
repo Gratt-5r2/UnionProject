@@ -728,7 +728,7 @@ namespace Gothic_II_Addon {
     zVEC3 soundPosition;                          // sizeof 0Ch    offset 9F4h
     zCPlayerGroup* playerGroup;                   // sizeof 04h    offset A00h
 
-    void oCNpc_OnInit()                                                                          zCall( 0x0082DF20 );
+    void oCNpc_OnInit()                                                                          zCall( 0x0072D950 );
     void InitDamage()                                                                            zCall( 0x00664490 );
     int EV_DamageOnce( oCMsgDamage* )                                                            zCall( 0x00664660 );
     int EV_DamagePerFrame( oCMsgDamage* )                                                        zCall( 0x006649A0 );
