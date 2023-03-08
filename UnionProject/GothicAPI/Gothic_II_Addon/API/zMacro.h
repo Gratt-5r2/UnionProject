@@ -22,7 +22,7 @@ namespace Gothic_II_Addon {
 #define virtual
 #endif
 #define group struct
-#define RGBA(r,g,b,a)   ((zUINT32)(zUINT8)(r)|(zUINT32)(zUINT8)(g)<<8|(zUINT32)(zUINT8)(b)<<16|(zUINT32)(zUINT8)(a)<<24)
+#define RGBA(r,g,b,a)   ((zUINT32)(zUINT8)(a)|(zUINT32)(zUINT8)(b)<<8|(zUINT32)(zUINT8)(g)<<16|(zUINT32)(zUINT8)(r)<<24)
 #define EXTRACT_R(rgba) (rgba		& 0xff)
 #define EXTRACT_G(rgba) (rgba >> 8	& 0xff)
 #define EXTRACT_B(rgba) (rgba >> 16 & 0xff)
