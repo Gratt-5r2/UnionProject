@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OOBJ_FACTORY_H__VER0__
@@ -11,7 +11,7 @@ namespace Gothic_I_Classic {
   public:
     zCLASS_DECLARATION( oCObjectFactory )
 
-    oCObjectFactory() {}
+    oCObjectFactory() : zCtor( zCObjectFactory ) {}
     static zCObject* _CreateNewInstance()                               zCall( 0x006C81B0 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x00425BD0 );
     virtual ~oCObjectFactory()                                          zCall( 0x00425D90 );

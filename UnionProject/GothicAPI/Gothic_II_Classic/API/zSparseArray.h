@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZSPARSE_ARRAY_H__VER2__
@@ -27,6 +27,7 @@ namespace Gothic_II_Classic {
     unsigned long maxRefCtr;
     int requestResize;
 
+    zDefineInheritableCtor( zCSparseArrayBase ) {}
     zCSparseArrayBase() {}
     void zCSparseArrayBase_OnInit( unsigned long )                         zCall( 0x005E8500 );
     zCSparseArrayBase( unsigned long a0 )                                  zInit( zCSparseArrayBase_OnInit( a0 ));

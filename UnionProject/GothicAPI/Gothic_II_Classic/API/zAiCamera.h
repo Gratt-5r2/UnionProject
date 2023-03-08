@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZAI_CAMERA_H__VER2__
@@ -75,7 +75,7 @@ namespace Gothic_II_Classic {
     int targetInPortalRoom;                  // sizeof 04h    offset 294h
 
     void zCAICamera_OnInit()                                                          zCall( 0x0049D9D0 );
-    zCAICamera()                                                                      zInit( zCAICamera_OnInit() );
+    zCAICamera() : zCtor( zCAIBase )                                                  zInit( zCAICamera_OnInit() );
     void StartUp()                                                                    zCall( 0x0049DEC0 );
     void CleanUp()                                                                    zCall( 0x0049E370 );
     float GetBestRange()                                                              zCall( 0x0049E410 );

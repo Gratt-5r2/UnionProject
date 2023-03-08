@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZVIEW_DIALOG_H__VER1__
@@ -14,8 +14,9 @@ namespace Gothic_I_Addon {
     int IsDone;      // sizeof 04h    offset F0h
     int IsActivated; // sizeof 04h    offset F4h
 
+    zDefineInheritableCtor( zCViewDialog ) : zCtor( zCViewPrint ), zCtor( zCInputCallback ) {}
     void zCViewDialog_OnInit()                                          zCall( 0x0079A9A0 );
-    zCViewDialog()                                                      zInit( zCViewDialog_OnInit() );
+    zCViewDialog() : zCtor( zCViewPrint ), zCtor( zCInputCallback )     zInit( zCViewDialog_OnInit() );
     static zCObject* _CreateNewInstance()                               zCall( 0x0079A7F0 );
     /* for zCObject num : 15*/
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x00762350 );

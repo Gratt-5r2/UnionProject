@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OVIEW_DIALOG_INVENTORY_H__VER3__
@@ -22,7 +22,7 @@ namespace Gothic_II_Addon {
     oEInventoryAlignment Alignment;            // sizeof 04h    offset 104h
 
     void oCViewDialogInventory_OnInit()                  zCall( 0x00689020 );
-    oCViewDialogInventory()                              zInit( oCViewDialogInventory_OnInit() );
+    oCViewDialogInventory() : zCtor( zCViewDialog )      zInit( oCViewDialogInventory_OnInit() );
     void __fastcall SetInventory( oCNpcInventory* )      zCall( 0x006890D0 );
     void __fastcall SetAlignment( oEInventoryAlignment ) zCall( 0x00689100 );
     oCItem* __fastcall GetSelectedItem()                 zCall( 0x00689110 );

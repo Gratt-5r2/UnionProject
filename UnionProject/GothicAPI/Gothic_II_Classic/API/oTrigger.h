@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OTRIGGER_H__VER2__
@@ -19,7 +19,7 @@ namespace Gothic_II_Classic {
     zSTRING startVob;  // sizeof 14h    offset 17Ch
 
     void oCTriggerChangeLevel_OnInit()                  zCall( 0x0043B6C0 );
-    oCTriggerChangeLevel()                              zInit( oCTriggerChangeLevel_OnInit() );
+    oCTriggerChangeLevel() : zCtor( zCTrigger )         zInit( oCTriggerChangeLevel_OnInit() );
     void SetLevelName( zSTRING const&, zSTRING const& ) zCall( 0x0043BB10 );
     static zCObject* _CreateNewInstance()               zCall( 0x0043B310 );
     virtual zCClassDef* _GetClassDef() const            zCall( 0x0043B3F0 );
@@ -41,7 +41,7 @@ namespace Gothic_II_Classic {
     zSTRING scriptFunc; // sizeof 14h    offset 168h
 
     void oCTriggerScript_OnInit()             zCall( 0x0043BDC0 );
-    oCTriggerScript()                         zInit( oCTriggerScript_OnInit() );
+    oCTriggerScript() : zCtor( zCTrigger )    zInit( oCTriggerScript_OnInit() );
     void SetScriptFunc( zSTRING const&, int ) zCall( 0x0043C480 );
     static zCObject* _CreateNewInstance()     zCall( 0x0043B5F0 );
     virtual zCClassDef* _GetClassDef() const  zCall( 0x0043B6B0 );
@@ -62,7 +62,7 @@ namespace Gothic_II_Classic {
     zSTRING objectName; // sizeof 14h    offset 124h
 
     void oCObjectGenerator_OnInit()          zCall( 0x0043C630 );
-    oCObjectGenerator()                      zInit( oCObjectGenerator_OnInit() );
+    oCObjectGenerator() : zCtor( zCVob )     zInit( oCObjectGenerator_OnInit() );
     void SetObjectName( zSTRING const& )     zCall( 0x0043C740 );
     void SetObjectSpeed( float )             zCall( 0x0043C880 );
     virtual void Archive( zCArchiver& )      zCall( 0x0043CB70 );

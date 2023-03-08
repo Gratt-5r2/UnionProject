@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZCS_CAMERA_H__VER0__
@@ -54,7 +54,7 @@ namespace Gothic_I_Classic {
     zTCamTrj_KFType type;                       // sizeof 04h    offset 1B8h
 
     void zCCamTrj_KeyFrame_OnInit()                                     zCall( 0x004B4AC0 );
-    zCCamTrj_KeyFrame()                                                 zInit( zCCamTrj_KeyFrame_OnInit() );
+    zCCamTrj_KeyFrame() : zCtor( zCVob )                                zInit( zCCamTrj_KeyFrame_OnInit() );
     void Changed()                                                      zCall( 0x004B5050 );
     static zCObject* _CreateNewInstance()                               zCall( 0x004BED90 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x004B4B90 );
@@ -91,8 +91,8 @@ namespace Gothic_I_Classic {
 
     void zCCSCamera_EventMsg_OnInit()                                        zCall( 0x004BD7A0 );
     void zCCSCamera_EventMsg_OnInit( zTCSCam_EvSubType )                     zCall( 0x004BD910 );
-    zCCSCamera_EventMsg()                                                    zInit( zCCSCamera_EventMsg_OnInit() );
-    zCCSCamera_EventMsg( zTCSCam_EvSubType a0 )                              zInit( zCCSCamera_EventMsg_OnInit( a0 ));
+    zCCSCamera_EventMsg() : zCtor( zCEventMessage )                          zInit( zCCSCamera_EventMsg_OnInit() );
+    zCCSCamera_EventMsg( zTCSCam_EvSubType a0 ) : zCtor( zCEventMessage )    zInit( zCCSCamera_EventMsg_OnInit( a0 ));
     static zCObject* _CreateNewInstance()                                    zCall( 0x004BE470 );
     virtual zCClassDef* _GetClassDef() const                                 zCall( 0x004BA670 );
     virtual void Archive( zCArchiver& )                                      zCall( 0x004BDA80 );
@@ -126,7 +126,7 @@ namespace Gothic_I_Classic {
     int isDeleted;         // sizeof 04h    offset 40h
     zCVob* referenceVob;   // sizeof 04h    offset 44h
 
-    zCCSCamera_EventMsgActivate() {}
+    zCCSCamera_EventMsgActivate() : zCtor( zCEventMessage ) {}
     static zCObject* _CreateNewInstance()                               zCall( 0x004BE7E0 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x00402090 );
     virtual void Archive( zCArchiver& )                                 zCall( 0x004BDDE0 );
@@ -218,7 +218,7 @@ namespace Gothic_I_Classic {
     void zCCSCamera_OnInit()                                                                      zCall( 0x004B50D0 );
     zCCamTrj_KeyFrame* GetCamKey( int )                                                           zCall( 0x004AB9A0 );
     zCCamTrj_KeyFrame* GetTargetKey( int )                                                        zCall( 0x004AB9C0 );
-    zCCSCamera()                                                                                  zInit( zCCSCamera_OnInit() );
+    zCCSCamera() : zCtor( zCVob )                                                                 zInit( zCCSCamera_OnInit() );
     void InsertCamKey( zCCamTrj_KeyFrame* )                                                       zCall( 0x004B56C0 );
     void InsertCamKeyAtPos( zCCamTrj_KeyFrame*, int )                                             zCall( 0x004B57F0 );
     void RemoveCamKey( zCCamTrj_KeyFrame* )                                                       zCall( 0x004B5950 );

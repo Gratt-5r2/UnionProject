@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #pragma warning(push)
@@ -650,23 +650,23 @@ namespace Gothic_II_Addon {
     zMAT3 Transpose() const            zCall( 0x00510E00 );
     zMAT3 Inverse( float* det = NULL ) zCall( 0x00510E90 );
 
-    zVEC2 GetUpVector() const
-    {
-      return zVEC2( v[0][1], v[1][1] );
-    }
-
     zVEC2 GetRightVector() const
     {
       return zVEC2( v[0][0], v[1][0] );
-    }
-    
-    void SetUpVector( const zVEC2& a0 )
+    };
+
+    zVEC2 GetUpVector() const
     {
-      v[0][2] = a0.n[VX];
-      v[1][2] = a0.n[VY];
-    }
+      return zVEC2( v[0][1], v[1][1] );
+    };
 
     void SetRightVector( const zVEC2& a0 )
+    {
+      v[0][0] = a0.n[VX];
+      v[1][0] = a0.n[VY];
+    }
+
+    void SetUpVector( const zVEC2& a0 )
     {
       v[0][1] = a0.n[VX];
       v[1][1] = a0.n[VY];
@@ -873,14 +873,14 @@ namespace Gothic_II_Addon {
         zVEC4( v[0][3], v[1][3], v[2][3], v[3][3] ) );
     }
 
-    zVEC3 GetUpVector() const
-    {
-      return zVEC3( v[0][1], v[1][1], v[2][1] );
-    }
-
     zVEC3 GetRightVector() const
     {
       return zVEC3( v[0][0], v[1][0], v[2][0] );
+    }
+
+    zVEC3 GetUpVector() const
+    {
+      return zVEC3( v[0][1], v[1][1], v[2][1] );
     }
 
     zVEC3 GetAtVector() const
@@ -888,14 +888,14 @@ namespace Gothic_II_Addon {
       return zVEC3( v[0][2], v[1][2], v[2][2] );
     }
 
-    void SetUpVector( const zVEC3& a0 )
+    void SetRightVector( const zVEC3& a0 )
     {
-      v[0][2] = a0.n[VX];
-      v[1][2] = a0.n[VY];
-      v[2][2] = a0.n[VZ];
+      v[0][0] = a0.n[VX];
+      v[1][0] = a0.n[VY];
+      v[2][0] = a0.n[VZ];
     }
 
-    void SetRightVector( const zVEC3& a0 )
+    void SetUpVector( const zVEC3& a0 )
     {
       v[0][1] = a0.n[VX];
       v[1][1] = a0.n[VY];
@@ -904,9 +904,9 @@ namespace Gothic_II_Addon {
 
     void SetAtVector( const zVEC3& a0 )
     {
-      v[0][0] = a0.n[VX];
-      v[1][0] = a0.n[VY];
-      v[2][0] = a0.n[VZ];
+      v[0][2] = a0.n[VX];
+      v[1][2] = a0.n[VY];
+      v[2][2] = a0.n[VZ];
     }
 
     zMAT4& Translate( const zVEC3& a0 )
@@ -1130,18 +1130,18 @@ namespace Gothic_II_Addon {
 
     zCQuat Inverse() const
     {
-      return zCQuat( -q[VX], -q[VY], -q[VZ], q[VW] );
-    }
-
-    zCQuat InverseNormal() const
-    {
       float len = 1.0f / Length_Sqr();
       return zCQuat(
         q[VX] * -len,
         q[VY] * -len,
         q[VZ] * -len,
-        q[VW] *  len
+        q[VW] * len
       );
+    }
+
+    zCQuat InverseUnit() const
+    {
+      return zCQuat( -q[VX], -q[VY], -q[VZ], q[VW] );
     }
 
     float Dot( const zCQuat& a0 ) const

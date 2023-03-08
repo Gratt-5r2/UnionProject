@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZTHREAD_H__VER0__
@@ -26,6 +26,7 @@ namespace Gothic_I_Classic {
     int isThreadRunning;      // sizeof 04h    offset 10h
     int terminationRequested; // sizeof 04h    offset 14h
 
+    zDefineInheritableCtor( zCThread ) {}
     void zCThread_OnInit()                      zCall( 0x005CE010 );
     zCThread()                                  zInit( zCThread_OnInit() );
     void SleepThread( unsigned long )           zCall( 0x005CE280 );
@@ -47,6 +48,7 @@ namespace Gothic_I_Classic {
   class zCSyncObject {
   public:
 
+    zDefineInheritableCtor( zCSyncObject ) {}
     zCSyncObject() {}
     virtual ~zCSyncObject()           zCall( 0x005CE430 );
     virtual int Lock( unsigned long ) zPureCall;
@@ -61,11 +63,11 @@ namespace Gothic_I_Classic {
   public:
     unsigned char criticalSection[0x18]; // sizeof 18h    offset 04h
 
-    void zCCriticalSection_OnInit()   zCall( 0x005CE290 );
-    zCCriticalSection()               zInit( zCCriticalSection_OnInit() );
-    virtual ~zCCriticalSection()      zCall( 0x005CE2D0 );
-    virtual int Lock( unsigned long ) zCall( 0x005CE310 );
-    virtual int Unlock()              zCall( 0x005CE330 );
+    void zCCriticalSection_OnInit()             zCall( 0x005CE290 );
+    zCCriticalSection() : zCtor( zCSyncObject ) zInit( zCCriticalSection_OnInit() );
+    virtual ~zCCriticalSection()                zCall( 0x005CE2D0 );
+    virtual int Lock( unsigned long )           zCall( 0x005CE310 );
+    virtual int Unlock()                        zCall( 0x005CE330 );
 
     // user API
     #include "zCCriticalSection.inl"
@@ -77,7 +79,7 @@ namespace Gothic_I_Classic {
     HANDLE mutex; // sizeof 04h    offset 04h
 
     void zCMutex_OnInit()             zCall( 0x005CE340 );
-    zCMutex()                         zInit( zCMutex_OnInit() );
+    zCMutex() : zCtor( zCSyncObject ) zInit( zCMutex_OnInit() );
     virtual ~zCMutex()                zCall( 0x005CE460 );
     virtual int Lock( unsigned long ) zCall( 0x005CE490 );
     virtual int Unlock()              zCall( 0x005CE4B0 );

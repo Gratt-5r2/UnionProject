@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OVIEW_DOCUMENT_MAP_H__VER3__
@@ -26,7 +26,7 @@ namespace Gothic_II_Addon {
     zVEC4 LevelCoords;           // sizeof 10h    offset 210h
 
     void oCViewDocumentMap_OnInit()                                  zCall( 0x0068D340 );
-    oCViewDocumentMap()                                              zInit( oCViewDocumentMap_OnInit() );
+    oCViewDocumentMap() : zCtor( oCViewDocument )                    zInit( oCViewDocumentMap_OnInit() );
     void __fastcall SetLevel( zSTRING const& )                       zCall( 0x0068D610 );
     void __fastcall SetLevelCoords( int, int, int, int )             zCall( 0x0068D770 );
     void __fastcall UpdatePosition()                                 zCall( 0x0068D7B0 );

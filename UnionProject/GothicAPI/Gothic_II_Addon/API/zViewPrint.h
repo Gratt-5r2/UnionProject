@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZVIEW_PRINT_H__VER3__
@@ -24,8 +24,9 @@ namespace Gothic_II_Addon {
     zPOS OffsetTextPixel;                // sizeof 08h    offset D4h
     zPOS SizeMargin[2];                  // sizeof 10h    offset DCh
 
+    zDefineInheritableCtor( zCViewPrint ) : zCtor( zCViewFX ) {}
     void zCViewPrint_OnInit()                                                    zCall( 0x00693200 );
-    zCViewPrint()                                                                zInit( zCViewPrint_OnInit() );
+    zCViewPrint() : zCtor( zCViewFX )                                            zInit( zCViewPrint_OnInit() );
     void __fastcall SizeHeightToContent( int )                                   zCall( 0x00693400 );
     void __fastcall GetPixelBorder( zCPosition&, zCPosition& )                   zCall( 0x00693880 );
     void __fastcall ClearText()                                                  zCall( 0x006938E0 );

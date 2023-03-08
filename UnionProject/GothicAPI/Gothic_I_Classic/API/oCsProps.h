@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OCS_PROPS_H__VER0__
@@ -16,7 +16,7 @@ namespace Gothic_I_Classic {
     int resultReaction; // sizeof 04h    offset 84h
 
     void oCCSProps_OnInit()                                             zCall( 0x00403DA0 );
-    oCCSProps()                                                         zInit( oCCSProps_OnInit() );
+    oCCSProps() : zCtor( zCCSProps )                                    zInit( oCCSProps_OnInit() );
     static zCObject* _CreateNewInstance()                               zCall( 0x00403D10 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x00403D90 );
     virtual void Archive( zCArchiver& )                                 zCall( 0x00403E00 );

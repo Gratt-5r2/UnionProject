@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OVIEW_DIALOG_STEAL_CONTAINER_H__VER1__
@@ -24,7 +24,7 @@ namespace Gothic_I_Addon {
     float ValueMultiplier;                               // sizeof 04h    offset 10Ch
 
     void oCViewDialogStealContainer_OnInit()                            zCall( 0x00765A00 );
-    oCViewDialogStealContainer()                                        zInit( oCViewDialogStealContainer_OnInit() );
+    oCViewDialogStealContainer() : zCtor( zCViewDialog )                zInit( oCViewDialogStealContainer_OnInit() );
     void __fastcall SetStealContainer( oCStealContainer* )              zCall( 0x00765AC0 );
     void __fastcall SetAlignment( oEStealContainerAlignment )           zCall( 0x00765AF0 );
     oCItem* __fastcall GetSelectedItem()                                zCall( 0x00765B00 );

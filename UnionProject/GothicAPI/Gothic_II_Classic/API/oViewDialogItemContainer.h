@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OVIEW_DIALOG_ITEM_CONTAINER_H__VER2__
@@ -24,7 +24,7 @@ namespace Gothic_II_Classic {
     float ValueMultiplier;                             // sizeof 04h    offset 10Ch
 
     void oCViewDialogItemContainer_OnInit()                  zCall( 0x00773D00 );
-    oCViewDialogItemContainer()                              zInit( oCViewDialogItemContainer_OnInit() );
+    oCViewDialogItemContainer() : zCtor( zCViewDialog )      zInit( oCViewDialogItemContainer_OnInit() );
     void __fastcall SetItemContainer( oCItemContainer* )     zCall( 0x00773DC0 );
     void __fastcall SetAlignment( oEItemContainerAlignment ) zCall( 0x00773DF0 );
     oCItem* __fastcall GetSelectedItem()                     zCall( 0x00773E00 );

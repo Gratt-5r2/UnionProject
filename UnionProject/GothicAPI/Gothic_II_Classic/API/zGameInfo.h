@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZGAME_INFO_H__VER2__
@@ -19,6 +19,7 @@ namespace Gothic_II_Classic {
   public:
     zSTRING name; // sizeof 14h    offset 04h
 
+    zDefineInheritableCtor( zCGameInfo ) {}
     void zCGameInfo_OnInit()                                     zCall( 0x0044F6D0 );
     zCGameInfo()                                                 zInit( zCGameInfo_OnInit() );
     void PackToBuffer( zCBuffer&, unsigned char )                zCall( 0x0044F920 );

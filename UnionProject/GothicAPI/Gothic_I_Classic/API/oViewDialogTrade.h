@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OVIEW_DIALOG_TRADE_H__VER0__
@@ -41,7 +41,7 @@ namespace Gothic_I_Classic {
 
     void oCViewDialogTrade_OnInit()                                     zCall( 0x00728B50 );
     void UpdateViewSettings()                                           zCall( 0x00728990 );
-    oCViewDialogTrade()                                                 zInit( oCViewDialogTrade_OnInit() );
+    oCViewDialogTrade() : zCtor( zCViewDialog )                         zInit( oCViewDialogTrade_OnInit() );
     void __fastcall AllDialogsStop()                                    zCall( 0x00729300 );
     void __fastcall AllDialogsDisable()                                 zCall( 0x00729340 );
     void __fastcall TransferAccept()                                    zCall( 0x00729390 );

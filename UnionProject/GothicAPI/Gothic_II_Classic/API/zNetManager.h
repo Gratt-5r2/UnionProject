@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZNET_MANAGER_H__VER2__
@@ -20,7 +20,7 @@ namespace Gothic_II_Classic {
 
     void zCNetManager_OnInit()                                                                  zCall( 0x0045B1D0 );
     int Temp_HandleNetMessage( zCNetMessage*&, zCWorld* )                                       zCall( 0x0045B160 );
-    zCNetManager()                                                                              zInit( zCNetManager_OnInit() );
+    zCNetManager() : zCtor( zCObject )                                                          zInit( zCNetManager_OnInit() );
     void SendPing()                                                                             zCall( 0x0045B610 );
     void SendPingReply( zCPlayerInfo* )                                                         zCall( 0x0045B680 );
     void SendWorldTime()                                                                        zCall( 0x0045B6C0 );

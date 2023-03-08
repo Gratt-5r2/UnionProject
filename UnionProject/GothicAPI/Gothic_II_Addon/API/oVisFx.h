@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OVIS_FX_H__VER3__
@@ -312,8 +312,9 @@ namespace Gothic_II_Addon {
     int m_bAllowMovement;                    // sizeof 04h    offset 608h
     float m_fSleepTimer;                     // sizeof 04h    offset 60Ch
 
+    zDefineInheritableCtor( oCVisualFX ) : zCtor( zCEffect ) {}
     void oCVisualFX_OnInit()                                                                             zCall( 0x00489AA0 );
-    oCVisualFX()                                                                                         zInit( oCVisualFX_OnInit() );
+    oCVisualFX() : zCtor( zCEffect )                                                                     zInit( oCVisualFX_OnInit() );
     void CleanUpCriticalFX()                                                                             zCall( 0x0048AC00 );
     void CreateHierachy()                                                                                zCall( 0x0048ADF0 );
     void DisposeHierachy()                                                                               zCall( 0x0048B0B0 );
@@ -429,7 +430,7 @@ namespace Gothic_II_Addon {
     zCVob* vob;    // sizeof 04h    offset 24h
     int delete_it; // sizeof 04h    offset 28h
 
-    oCVisualFXAI() {}
+    oCVisualFXAI() : zCtor( zCAIBase ) {}
     virtual ~oCVisualFXAI()                                      zCall( 0x0048BDE0 );
     virtual void DoAI( zCVob*, int& )                            zCall( 0x0049A030 );
     virtual void ReportCollisionToAI( zCCollisionReport const& ) zCall( 0x0048BD70 );

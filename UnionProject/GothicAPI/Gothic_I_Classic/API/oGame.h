@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OGAME_H__VER0__
@@ -104,7 +104,7 @@ namespace Gothic_I_Classic {
     zCArray<zCVisual*> visualList;                    // sizeof 0Ch    offset 174h
 
     void oCGame_OnInit()                                                         zCall( 0x006356A0 );
-    oCGame()                                                                     zInit( oCGame_OnInit() );
+    oCGame() : zCtor( zCSession )                                                zInit( oCGame_OnInit() );
     void SetCameraPosition()                                                     zCall( 0x00636470 );
     void UpdateViewSettings()                                                    zCall( 0x00636B50 );
     void CallScriptStartup()                                                     zCall( 0x00637C10 );

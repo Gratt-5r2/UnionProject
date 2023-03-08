@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZSOUND_H__VER2__
@@ -54,6 +54,7 @@ namespace Gothic_II_Classic {
 
     float defaultRadius; // sizeof 04h    offset 04h
 
+    zDefineInheritableCtor( zCSoundSystem ) {}
     zCSoundSystem() {}
     int GetNumReverbPresets()                                                zCall( 0x005E52B0 );
     zSTRING const* GetReverbPresetName( int )                                zCall( 0x005E52C0 );
@@ -99,8 +100,9 @@ namespace Gothic_II_Classic {
   public:
     zCLASS_DECLARATION( zCSoundFX )
 
+    zDefineInheritableCtor( zCSoundFX ) : zCtor( zCResource ) {}
     void zCSoundFX_OnInit()                                       zCall( 0x004EB2D0 );
-    zCSoundFX()                                                   zInit( zCSoundFX_OnInit() );
+    zCSoundFX() : zCtor( zCResource )                             zInit( zCSoundFX_OnInit() );
     virtual zCClassDef* _GetClassDef() const                      zCall( 0x004EB2C0 );
     virtual ~zCSoundFX()                                          zCall( 0x004EB2F0 );
     virtual void GetCacheConfig( unsigned long&, unsigned long& ) zCall( 0x005E52E0 );
@@ -128,7 +130,7 @@ namespace Gothic_II_Classic {
   class zCSoundFXDummy : public zCSoundFX {
   public:
 
-    zCSoundFXDummy() {}
+    zCSoundFXDummy() : zCtor( zCSoundFX ) {}
     virtual ~zCSoundFXDummy() zCall( 0x0062B380 );
 
     // user API
@@ -139,7 +141,7 @@ namespace Gothic_II_Classic {
   class zCSoundSystemDummy : public zCSoundSystem {
   public:
 
-    zCSoundSystemDummy() {}
+    zCSoundSystemDummy() : zCtor( zCSoundSystem ) {}
     virtual ~zCSoundSystemDummy()                                                           zCall( 0x00631860 );
     virtual zCSoundFX* LoadSoundFX( zSTRING const& )                                        zCall( 0x0062B2F0 );
     virtual int PlaySound( zCSoundFX*, int )                                                zCall( 0x0062B390 );

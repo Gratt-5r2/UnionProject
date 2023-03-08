@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZVERTEX_BUFFER_H__VER3__
@@ -91,9 +91,10 @@ namespace Gothic_II_Addon {
     zCArray<zTCallbackData> callbackList; // sizeof 0Ch    offset 58h
     unsigned long vertexBufferID;         // sizeof 04h    offset 64h
 
+    zDefineInheritableCtor( zCVertexBuffer ) : zCtor( zCObject ) {}
     void zCVertexBuffer_OnInit()                                                          zCall( 0x005FBD40 );
     void SetXYZ( unsigned long, zVEC3 const& )                                            zCall( 0x005CCDA0 );
-    zCVertexBuffer()                                                                      zInit( zCVertexBuffer_OnInit() );
+    zCVertexBuffer() : zCtor( zCObject )                                                  zInit( zCVertexBuffer_OnInit() );
     void AddRecreateLostVBCallback( int( __cdecl* )( zCVertexBuffer*, void* ), void* )    zCall( 0x005FBFF0 );
     void RemoveRecreateLostVBCallback( int( __cdecl* )( zCVertexBuffer*, void* ), void* ) zCall( 0x005FC100 );
     int CallRecreateLostVBCallbacks()                                                     zCall( 0x005FC160 );

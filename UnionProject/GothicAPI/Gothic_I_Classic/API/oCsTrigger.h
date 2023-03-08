@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OCS_TRIGGER_H__VER0__
@@ -13,7 +13,7 @@ namespace Gothic_I_Classic {
   public:
     zCLASS_DECLARATION( oCCSTrigger )
 
-    oCCSTrigger() {}
+    oCCSTrigger() : zCtor( zCTrigger ) {}
     static zCObject* _CreateNewInstance()                               zCall( 0x004040B0 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x004041F0 );
     virtual void Archive( zCArchiver& )                                 zCall( 0x00404AF0 );

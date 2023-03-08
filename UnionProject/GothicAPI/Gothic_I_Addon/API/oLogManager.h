@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OLOG_MANAGER_H__VER1__
@@ -49,8 +49,8 @@ namespace Gothic_I_Addon {
     void __fastcall Unarchive( zCArchiver& )   zCall( 0x0076D3C0 );
 
     // statics
-    static char**& ms_strSections;
-    static char**& ms_strStati;
+    static char** ms_strSections;
+    static char** ms_strStati;
 
     // user API
     #include "oCLogTopic.inl"

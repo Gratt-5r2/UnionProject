@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OPLAYER_INFO_H__VER2__
@@ -25,7 +25,7 @@ namespace Gothic_II_Classic {
     TPlayerInstance instance; // sizeof 04h    offset 3Ch
 
     void oCPlayerInfo_OnInit()                          zCall( 0x00435EE0 );
-    oCPlayerInfo()                                      zInit( oCPlayerInfo_OnInit() );
+    oCPlayerInfo() : zCtor( zCPlayerInfo )              zInit( oCPlayerInfo_OnInit() );
     zSTRING GetInstanceName() const                     zCall( 0x004361D0 );
     TPlayerInstance GetInstance() const                 zCall( 0x00436220 );
     virtual ~oCPlayerInfo()                             zCall( 0x00436070 );

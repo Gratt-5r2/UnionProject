@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZNET_VOB_CONTROL_H__VER3__
@@ -19,7 +19,7 @@ namespace Gothic_II_Addon {
     int isLocalChained;       // sizeof 04h    offset 2Ch
 
     void zCNetVobControl_OnInit()                                                 zCall( 0x0045DD00 );
-    zCNetVobControl()                                                             zInit( zCNetVobControl_OnInit() );
+    zCNetVobControl() : zCtor( zCObject )                                         zInit( zCNetVobControl_OnInit() );
     static zCObject* _CreateNewInstance()                                         zCall( 0x0045DB80 );
     static int HandleNetMessage( zCNetMessage*, unsigned short const&, zCWorld* ) zCall( 0x0045E3B0 );
     virtual zCClassDef* _GetClassDef() const                                      zCall( 0x0045DCD0 );

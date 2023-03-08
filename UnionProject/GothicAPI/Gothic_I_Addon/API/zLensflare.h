@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZLENSFLARE_H__VER1__
@@ -44,7 +44,7 @@ namespace Gothic_I_Addon {
     zCArray<zTVobLightLensFlare> lensFlareList; // sizeof 0Ch    offset 24h
     zCLensFlareFXEnum1 flareMix;                // sizeof 04h    offset 30h
 
-    zCLensFlareFX() {}
+    zCLensFlareFX() : zCtor( zCObject ) {}
     void RenderLensFlares( zCVob* )                                     zCall( 0x005645C0 );
     void RenderLensFlares( zVEC2& )                                     zCall( 0x00564D40 );
     void SetAlpha( int )                                                zCall( 0x00564F20 );

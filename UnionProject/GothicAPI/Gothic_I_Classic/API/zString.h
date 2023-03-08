@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZSTRING_H__VER0__
@@ -29,6 +29,7 @@ namespace Gothic_I_Classic {
     zMEMPOOL_DECLARATION( zSTRING, 0x008699A0 )
       
     // Constructors
+    zDefineInheritableCtor( zSTRING ) {}
     void zSTRING_OnInit( char const* )      zCall( 0x004013A0 );
     void zSTRING_OnInit()                   zCall( 0x00402B30 );
     void zSTRING_OnInit( zSTRING const& )   zCall( 0x00415F40 );

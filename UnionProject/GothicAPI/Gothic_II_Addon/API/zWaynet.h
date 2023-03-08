@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZWAYNET_H__VER3__
@@ -23,7 +23,7 @@ namespace Gothic_II_Addon {
     zCLASS_DECLARATION( zCVobWaypoint )
 
     void zCVobWaypoint_OnInit()              zCall( 0x007ACBC0 );
-    zCVobWaypoint()                          zInit( zCVobWaypoint_OnInit() );
+    zCVobWaypoint() : zCtor( zCVob )         zInit( zCVobWaypoint_OnInit() );
     static zCObject* _CreateNewInstance()    zCall( 0x007B33B0 );
     virtual zCClassDef* _GetClassDef() const zCall( 0x007ACBE0 );
     virtual ~zCVobWaypoint()                 zCall( 0x007ACC20 );
@@ -51,8 +51,9 @@ namespace Gothic_II_Addon {
     zCVobWaypoint* wpvob;  // sizeof 04h    offset 70h
     zCList<zCWay> wayList; // sizeof 08h    offset 74h
 
+    zDefineInheritableCtor( zCWaypoint ) : zCtor( zCObject ) {}
     void zCWaypoint_OnInit()                 zCall( 0x007AF770 );
-    zCWaypoint()                             zInit( zCWaypoint_OnInit() );
+    zCWaypoint() : zCtor( zCObject )         zInit( zCWaypoint_OnInit() );
     void Init( zVEC3& )                      zCall( 0x007AF8A0 );
     void Init( float, float, float )         zCall( 0x007AF900 );
     void Init( zCVobWaypoint* )              zCall( 0x007AF970 );
@@ -93,6 +94,7 @@ namespace Gothic_II_Addon {
     zCWaypoint* left;  // sizeof 04h    offset 18h
     zCWaypoint* right; // sizeof 04h    offset 1Ch
 
+    zDefineInheritableCtor( zCWay ) {}
     void zCWay_OnInit()                           zCall( 0x007AE830 );
     void zCWay_OnInit( zCWaypoint*, zCWaypoint* ) zCall( 0x007AE890 );
     zCWay()                                       zInit( zCWay_OnInit() );
@@ -136,8 +138,8 @@ namespace Gothic_II_Addon {
 
     void zCWayNet_OnInit()                                             zCall( 0x007ACC30 );
     void zCWayNet_OnInit( zCWorld* )                                   zCall( 0x007ACD10 );
-    zCWayNet()                                                         zInit( zCWayNet_OnInit() );
-    zCWayNet( zCWorld* a0 )                                            zInit( zCWayNet_OnInit( a0 ));
+    zCWayNet() : zCtor( zCObject )                                     zInit( zCWayNet_OnInit() );
+    zCWayNet( zCWorld* a0 ) : zCtor( zCObject )                        zInit( zCWayNet_OnInit( a0 ));
     zCWaypoint* HasWaypoint( float, float, float )                     zCall( 0x007ACF00 );
     int HasWaypoint( zCWaypoint* )                                     zCall( 0x007ACF70 );
     zCWaypoint* HasWaypoint( zVEC3& )                                  zCall( 0x007ACFA0 );
@@ -227,7 +229,7 @@ namespace Gothic_II_Addon {
     zCVob* inUseVob; // sizeof 04h    offset 124h
 
     void zCVobSpot_OnInit()                  zCall( 0x007B2FA0 );
-    zCVobSpot()                              zInit( zCVobSpot_OnInit() );
+    zCVobSpot() : zCtor( zCVob )             zInit( zCVobSpot_OnInit() );
     int IsAvailable( zCVob* )                zCall( 0x007B3020 );
     void MarkAsUsed( float, zCVob* )         zCall( 0x007B31A0 );
     static zCObject* _CreateNewInstance()    zCall( 0x007B3610 );
@@ -243,7 +245,7 @@ namespace Gothic_II_Addon {
   public:
     zCLASS_DECLARATION( zCVobStartpoint )
 
-    zCVobStartpoint() {}
+    zCVobStartpoint() : zCtor( zCVob ) {}
     static zCObject* _CreateNewInstance()    zCall( 0x007B38B0 );
     virtual zCClassDef* _GetClassDef() const zCall( 0x007B3940 );
     virtual ~zCVobStartpoint()               zCall( 0x007B3980 );

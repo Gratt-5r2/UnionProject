@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZPOLY_STRIP_H__VER0__
@@ -42,8 +42,9 @@ namespace Gothic_I_Classic {
       unsigned char localFOR : 1; // sizeof 01h    offset bit
     };
 
+    zDefineInheritableCtor( zCPolyStrip ) : zCtor( zCVisual ) {}
     void zCPolyStrip_OnInit()                                             zCall( 0x0059B610 );
-    zCPolyStrip()                                                         zInit( zCPolyStrip_OnInit() );
+    zCPolyStrip() : zCtor( zCVisual )                                     zInit( zCPolyStrip_OnInit() );
     void CalcBBox3D()                                                     zCall( 0x0059B9A0 );
     void EmptyEffect()                                                    zCall( 0x0059BB20 );
     void AllocateResources( int )                                         zCall( 0x0059BB50 );
@@ -80,7 +81,7 @@ namespace Gothic_I_Classic {
     public:
       zCArray<zCBolt*> childList; // sizeof 0Ch    offset A8h
 
-      zCBolt() {}
+      zCBolt() : zCtor( zCPolyStrip ) {}
       void Generate_R( zVEC3 const&, zVEC3 const&, float ) zCall( 0x0059D560 );
       virtual int Render( zTRenderContext& )               zCall( 0x0059DBF0 );
       virtual void FreeResources()                         zCall( 0x0059DB20 );
@@ -91,7 +92,7 @@ namespace Gothic_I_Classic {
 
     zCBolt rootBolt; // sizeof B4h    offset 34h
 
-    zCLightning() {}
+    zCLightning() : zCtor( zCVisual ) {}
     void SetProjectionSphere( zTBSphere3D const& ) zCall( 0x0059D4D0 );
     void Generate( zVEC3 const&, zVEC3 const& )    zCall( 0x0059D500 );
 
@@ -181,7 +182,7 @@ namespace Gothic_I_Classic {
     zVEC3 averageNormal;                            // sizeof 0Ch    offset 7Ch
 
     void zCQuadMark_OnInit()                                                                        zCall( 0x005AB810 );
-    zCQuadMark()                                                                                    zInit( zCQuadMark_OnInit() );
+    zCQuadMark() : zCtor( zCVisual )                                                                zInit( zCQuadMark_OnInit() );
     int ClipQuadPolyToPlane( zTQuadMarkPoly&, zTQuadMarkPoly&, zTPlane const& )                     zCall( 0x005ABC80 );
     void ClipQuadPolyToWorldPoly( zTQuadMarkPoly&, zCPolygon*, zCArray<int>& )                      zCall( 0x005ABEC0 );
     void CalcQuadAxis( zCPolygon*, zVEC3&, zVEC3& )                                                 zCall( 0x005AC120 );

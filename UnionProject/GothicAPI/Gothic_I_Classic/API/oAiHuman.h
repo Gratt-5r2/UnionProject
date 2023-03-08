@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OAI_HUMAN_H__VER0__
@@ -19,7 +19,7 @@ namespace Gothic_I_Classic {
     zCTimer localTimer; // sizeof 1Ch    offset 24h
 
     void oCAICamera_OnInit()                 zCall( 0x00616500 );
-    oCAICamera()                             zInit( oCAICamera_OnInit() );
+    oCAICamera() : zCtor( zCAIBase )         zInit( oCAICamera_OnInit() );
     static zCObject* _CreateNewInstance()    zCall( 0x00616F60 );
     virtual zCClassDef* _GetClassDef() const zCall( 0x00616640 );
     virtual ~oCAICamera()                    zCall( 0x00616690 );
@@ -54,7 +54,7 @@ namespace Gothic_I_Classic {
     int MagicInvestSpell()                   zCall( 0x0046C330 );
     int MagicCheckSpellStates( int )         zCall( 0x0046C940 );
     int MagicMode()                          zCall( 0x0046D260 );
-    oCAIHuman()                              zInit( oCAIHuman_OnInit() );
+    oCAIHuman() : zCtor( oCAniCtrl_Human )   zInit( oCAIHuman_OnInit() );
     int DoSimpleAI()                         zCall( 0x0060F790 );
     int Pressed( int )                       zCall( 0x0060F920 );
     int Toggled( int )                       zCall( 0x0060F940 );
@@ -122,13 +122,13 @@ namespace Gothic_I_Classic {
   public:
     zCLASS_DECLARATION( oCAIHuman_Stand )
 
-    oCAIHuman_Stand() {}
-    void oCAIHuman_Stand_OnInit( zCVob* )    zCall( 0x006168D0 );
-    oCAIHuman_Stand( zCVob* a0 )             zInit( oCAIHuman_Stand_OnInit( a0 ));
-    static zCObject* _CreateNewInstance()    zCall( 0x006172E0 );
-    virtual zCClassDef* _GetClassDef() const zCall( 0x006169F0 );
-    virtual ~oCAIHuman_Stand()               zCall( 0x00616A30 );
-    virtual void DoAI( zCVob*, int& )        zCall( 0x00616A40 );
+    oCAIHuman_Stand() : zCtor( zCAIBase ) {}
+    void oCAIHuman_Stand_OnInit( zCVob* )                        zCall( 0x006168D0 );
+    oCAIHuman_Stand( zCVob* a0 ) : zCtor( zCAIBase )             zInit( oCAIHuman_Stand_OnInit( a0 ));
+    static zCObject* _CreateNewInstance()                        zCall( 0x006172E0 );
+    virtual zCClassDef* _GetClassDef() const                     zCall( 0x006169F0 );
+    virtual ~oCAIHuman_Stand()                                   zCall( 0x00616A30 );
+    virtual void DoAI( zCVob*, int& )                            zCall( 0x00616A40 );
 
     // user API
     #include "oCAIHuman_Stand.inl"

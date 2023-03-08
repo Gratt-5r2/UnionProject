@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZMUSIC__DM_H__VER1__
@@ -14,7 +14,7 @@ namespace Gothic_I_Addon {
   public:
     void* seg; // sizeof 04h    offset 48h
 
-    zCMusicTheme_DM() {}
+    zCMusicTheme_DM() : zCtor( zCMusicTheme ) {}
     virtual ~zCMusicTheme_DM()   zCall( 0x004EB2B0 );
     virtual int IsActive() const zCall( 0x004EB460 );
 
@@ -26,7 +26,7 @@ namespace Gothic_I_Addon {
   class zCMusicJingle_DM : public zCMusicJingle {
   public:
 
-    zCMusicJingle_DM() {}
+    zCMusicJingle_DM() : zCtor( zCMusicJingle ) {}
 
     // user API
     #include "zCMusicJingle_DM.inl"
@@ -54,7 +54,7 @@ namespace Gothic_I_Addon {
     zCMusicTheme* defTheme;  // sizeof 04h    offset 2Ch
 
     void zCMusicSys_DirectMusic_OnInit()                                                                     zCall( 0x004EB490 );
-    zCMusicSys_DirectMusic()                                                                                 zInit( zCMusicSys_DirectMusic_OnInit() );
+    zCMusicSys_DirectMusic() : zCtor( zCMusicSystem )                                                        zInit( zCMusicSys_DirectMusic_OnInit() );
     virtual ~zCMusicSys_DirectMusic()                                                                        zCall( 0x004ECA80 );
     virtual void PlayThemeByScript( zSTRING const&, int, int* )                                              zCall( 0x004ECB40 );
     virtual zCMusicTheme* LoadThemeByScript( zSTRING const& )                                                zCall( 0x004ECD40 );

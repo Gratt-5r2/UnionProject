@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZSOUND_H__VER3__
@@ -56,6 +56,7 @@ namespace Gothic_II_Addon {
 
     float defaultRadius; // sizeof 04h    offset 04h
 
+    zDefineInheritableCtor( zCSoundSystem ) {}
     zCSoundSystem() {}
     int GetNumReverbPresets()                                                zCall( 0x005EC060 );
     zSTRING const* GetReverbPresetName( int )                                zCall( 0x005EC070 );
@@ -101,8 +102,9 @@ namespace Gothic_II_Addon {
   public:
     zCLASS_DECLARATION( zCSoundFX )
 
+    zDefineInheritableCtor( zCSoundFX ) : zCtor( zCResource ) {}
     void zCSoundFX_OnInit()                                       zCall( 0x004EDF50 );
-    zCSoundFX()                                                   zInit( zCSoundFX_OnInit() );
+    zCSoundFX() : zCtor( zCResource )                             zInit( zCSoundFX_OnInit() );
     virtual zCClassDef* _GetClassDef() const                      zCall( 0x004EDF40 );
     virtual ~zCSoundFX()                                          zCall( 0x004EDF70 );
     virtual void GetCacheConfig( unsigned long&, unsigned long& ) zCall( 0x005EC090 );
@@ -130,7 +132,7 @@ namespace Gothic_II_Addon {
   class zCSoundFXDummy : public zCSoundFX {
   public:
 
-    zCSoundFXDummy() {}
+    zCSoundFXDummy() : zCtor( zCSoundFX ) {}
     virtual ~zCSoundFXDummy() zCall( 0x00632B50 );
 
     // user API
@@ -141,7 +143,7 @@ namespace Gothic_II_Addon {
   class zCSoundSystemDummy : public zCSoundSystem {
   public:
 
-    zCSoundSystemDummy() {}
+    zCSoundSystemDummy() : zCtor( zCSoundSystem ) {}
     virtual ~zCSoundSystemDummy()                                                           zCall( 0x00639030 );
     virtual zCSoundFX* LoadSoundFX( zSTRING const& )                                        zCall( 0x00632AC0 );
     virtual int PlaySound( zCSoundFX*, int )                                                zCall( 0x00632B60 );

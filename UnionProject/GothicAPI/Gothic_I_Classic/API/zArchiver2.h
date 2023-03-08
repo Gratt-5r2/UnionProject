@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZARCHIVER2_H__VER0__
@@ -58,7 +58,7 @@ namespace Gothic_I_Classic {
     void __fastcall ClearChunkList()                                                                   zCall( 0x0050BAC0 );
     unsigned long __fastcall InsertChunkInList( char const* )                                          zCall( 0x0050BC40 );
     unsigned long __fastcall ResolveAndPosEntry( char const* )                                         zCall( 0x0050BCD0 );
-    zCArchiverBinSafe()                                                                                zInit( zCArchiverBinSafe_OnInit() );
+    zCArchiverBinSafe() : zCtor( zCArchiver )                                                          zInit( zCArchiverBinSafe_OnInit() );
     void DebugMessage( zSTRING const& )                                                                zCall( 0x0050C2A0 );
     void CheckObjectListSize( int )                                                                    zCall( 0x0050EAE0 );
     static zCObject* _CreateNewInstance()                                                              zCall( 0x0050B2E0 );

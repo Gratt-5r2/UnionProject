@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZMENU_H__VER2__
@@ -69,10 +69,11 @@ namespace Gothic_II_Classic {
     int forcedSelAction;                // sizeof 04h    offset CB4h
     zCArray<zCMenuItem*> m_listItems;   // sizeof 0Ch    offset CB8h
 
+    zDefineInheritableCtor( zCMenu ) : zCtor( zCInputCallback ) {}
     void zCMenu_OnInit()                                                            zCall( 0x004D7DD0 );
     void zCMenu_OnInit( zSTRING const& )                                            zCall( 0x004D7F70 );
-    zCMenu()                                                                        zInit( zCMenu_OnInit() );
-    zCMenu( zSTRING const& a0 )                                                     zInit( zCMenu_OnInit( a0 ));
+    zCMenu() : zCtor( zCInputCallback )                                             zInit( zCMenu_OnInit() );
+    zCMenu( zSTRING const& a0 ) : zCtor( zCInputCallback )                          zInit( zCMenu_OnInit( a0 ));
     void InitValues()                                                               zCall( 0x004D82B0 );
     void Release()                                                                  zCall( 0x004D84E0 );
     void Register()                                                                 zCall( 0x004D8760 );

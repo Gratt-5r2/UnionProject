@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZARCHIVER_H__VER0__
@@ -81,7 +81,8 @@ namespace Gothic_I_Classic {
     zTArchiveMedium medium; // sizeof 04h    offset 24h
     zTArchiveMode mode;     // sizeof 04h    offset 28h
 
-    zCArchiver() {}
+    zDefineInheritableCtor( zCArchiver ) : zCtor( zCObject ) {}
+    zCArchiver() : zCtor( zCObject ) {}
     virtual zCClassDef* _GetClassDef() const                                                           zCall( 0x0050BED0 );
     virtual ~zCArchiver()                                                                              zCall( 0x0050BEE0 );
     virtual void __fastcall WriteInt( char const*, int )                                               zPureCall;

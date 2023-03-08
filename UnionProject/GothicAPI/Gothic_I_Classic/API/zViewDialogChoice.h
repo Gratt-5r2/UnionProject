@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZVIEW_DIALOG_CHOICE_H__VER0__
@@ -18,7 +18,7 @@ namespace Gothic_I_Classic {
     int LineStart;        // sizeof 04h    offset 108h
 
     void zCViewDialogChoice_OnInit()                                    zCall( 0x00758920 );
-    zCViewDialogChoice()                                                zInit( zCViewDialogChoice_OnInit() );
+    zCViewDialogChoice() : zCtor( zCViewDialog )                        zInit( zCViewDialogChoice_OnInit() );
     void __fastcall ScrollUp()                                          zCall( 0x00758ED0 );
     void __fastcall ScrollDown()                                        zCall( 0x00758F10 );
     int __fastcall IsSelectedOutsideAbove()                             zCall( 0x00758F50 );

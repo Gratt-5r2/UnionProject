@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OMENU__HELP_H__VER3__
@@ -26,7 +26,7 @@ namespace Gothic_II_Addon {
   public:
     zCArray<oSMenuKey> keys; // sizeof 0Ch    offset CC4h
 
-    oCMenu_Help() {}
+    oCMenu_Help() : zCtor( zCMenu ) {}
 
     // user API
     #include "oCMenu_Help.inl"

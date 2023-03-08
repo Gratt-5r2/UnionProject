@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OVOB_H__VER3__
@@ -25,8 +25,9 @@ namespace Gothic_II_Addon {
   public:
     zCLASS_DECLARATION( oCVob )
 
+    zDefineInheritableCtor( oCVob ) : zCtor( zCVob ) {}
     void oCVob_OnInit()                                                                      zCall( 0x0077B6A0 );
-    oCVob()                                                                                  zInit( oCVob_OnInit() );
+    oCVob() : zCtor( zCVob )                                                                 zInit( oCVob_OnInit() );
     int GetShowDebug()                                                                       zCall( 0x0077B7A0 );
     void ToggleShowDebug()                                                                   zCall( 0x0077B7D0 );
     void SetShowDebug( int )                                                                 zCall( 0x0077B850 );
@@ -67,7 +68,7 @@ namespace Gothic_II_Addon {
   public:
     zCLASS_DECLARATION( oCTouchDamage )
 
-    oCTouchDamage() {}
+    oCTouchDamage() : zCtor( zCTouchDamage ) {}
     static zCObject* _CreateNewInstance()                     zCall( 0x0077DAF0 );
     virtual zCClassDef* _GetClassDef() const                  zCall( 0x0077DB70 );
     virtual ~oCTouchDamage()                                  zCall( 0x0077DBB0 );

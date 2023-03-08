@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZPARTICLE_H__VER3__
@@ -257,8 +257,9 @@ namespace Gothic_II_Addon {
     float m_BboxYRangeInv;                     // sizeof 04h    offset B0h
     int m_bVisualNeverDies;                    // sizeof 04h    offset B4h
 
+    zDefineInheritableCtor( zCParticleFX ) : zCtor( zCVisual ) {}
     void zCParticleFX_OnInit()                                        zCall( 0x005ACF70 );
-    zCParticleFX()                                                    zInit( zCParticleFX_OnInit() );
+    zCParticleFX() : zCtor( zCVisual )                                zInit( zCParticleFX_OnInit() );
     void InitEmitterVars()                                            zCall( 0x005ADC10 );
     void FreeParticles()                                              zCall( 0x005ADC30 );
     void RemoveEmitter()                                              zCall( 0x005ADFA0 );

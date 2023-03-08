@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZSOUND_H__VER0__
@@ -51,6 +51,7 @@ namespace Gothic_I_Classic {
 
     float defaultRadius; // sizeof 04h    offset 04h
 
+    zDefineInheritableCtor( zCSoundSystem ) {}
     zCSoundSystem() {}
     int GetNumReverbPresets()                                                zCall( 0x005C19F0 );
     zSTRING const* GetReverbPresetName( int )                                zCall( 0x005C1A00 );
@@ -96,8 +97,9 @@ namespace Gothic_I_Classic {
   public:
     zCLASS_DECLARATION( zCSoundFX )
 
+    zDefineInheritableCtor( zCSoundFX ) : zCtor( zCResource ) {}
     void zCSoundFX_OnInit()                                             zCall( 0x004E09C0 );
-    zCSoundFX()                                                         zInit( zCSoundFX_OnInit() );
+    zCSoundFX() : zCtor( zCResource )                                   zInit( zCSoundFX_OnInit() );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x004E09B0 );
     virtual ~zCSoundFX()                                                zCall( 0x004E09E0 );
     virtual void GetCacheConfig( unsigned long&, unsigned long& )       zCall( 0x005C1A20 );
@@ -123,7 +125,7 @@ namespace Gothic_I_Classic {
   class zCSoundFXDummy : public zCSoundFX {
   public:
 
-    zCSoundFXDummy() {}
+    zCSoundFXDummy() : zCtor( zCSoundFX ) {}
     virtual ~zCSoundFXDummy() zCall( 0x006037F0 );
 
     // user API
@@ -134,7 +136,7 @@ namespace Gothic_I_Classic {
   class zCSoundSystemDummy : public zCSoundSystem {
   public:
 
-    zCSoundSystemDummy() {}
+    zCSoundSystemDummy() : zCtor( zCSoundSystem ) {}
     virtual ~zCSoundSystemDummy()                                                           zCall( 0x00608920 );
     virtual zCSoundFX* LoadSoundFX( zSTRING const& )                                        zCall( 0x00603740 );
     virtual int PlaySound( zCSoundFX*, int )                                                zCall( 0x00603800 );

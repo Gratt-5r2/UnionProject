@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZVIEW_OBJECT_H__VER1__
@@ -30,8 +30,9 @@ namespace Gothic_I_Addon {
     zCViewObject* ViewParent;              // sizeof 04h    offset 4Ch
     zCListSort<zCViewObject> ListChildren; // sizeof 0Ch    offset 50h
 
+    zDefineInheritableCtor( zCViewObject ) : zCtor( zCObject ), zCtor( zCViewBase ) {}
     void zCViewObject_OnInit()                                          zCall( 0x007971E0 );
-    zCViewObject()                                                      zInit( zCViewObject_OnInit() );
+    zCViewObject() : zCtor( zCObject ), zCtor( zCViewBase )             zInit( zCViewObject_OnInit() );
     void __fastcall AddChild( zCViewObject* )                           zCall( 0x00797440 );
     void __fastcall AddChild( zCViewObject& )                           zCall( 0x00797460 );
     void __fastcall AddChildren( zCListSort<zCViewObject>& )            zCall( 0x00797480 );

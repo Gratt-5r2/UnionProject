@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZAI_PLAYER_H__VER3__
@@ -130,8 +130,9 @@ namespace Gothic_II_Addon {
     unsigned char dummyLastVar;                                       // sizeof 01h    offset 100h
     zSTRING bloodDefaultTexName;                                      // sizeof 14h    offset 104h
 
+    zDefineInheritableCtor( zCAIPlayer ) : zCtor( zCAIBase ) {}
     void zCAIPlayer_OnInit()                                          zCall( 0x0050C5C0 );
-    zCAIPlayer()                                                      zInit( zCAIPlayer_OnInit() );
+    zCAIPlayer() : zCtor( zCAIBase )                                  zInit( zCAIPlayer_OnInit() );
     void RemoveEffects()                                              zCall( 0x0050C980 );
     float GetJumpUpHeight()                                           zCall( 0x0050CA70 );
     void SetJumpUpForceByHeight( float )                              zCall( 0x0050CAB0 );

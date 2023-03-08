@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OFOCUS_H__VER0__
@@ -70,7 +70,7 @@ namespace Gothic_I_Classic {
 
     // static properties
     static oCNpcFocus*& focus;
-    static oCNpcFocus**& focuslist;
+    static oCNpcFocus** focuslist;
 
     // user API
     #include "oCNpcFocus.inl"

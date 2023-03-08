@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZVIDEO_PLAYER_H__VER0__
@@ -17,6 +17,7 @@ namespace Gothic_I_Classic {
     float mSoundVolume;     // sizeof 04h    offset 28h
     float mScaleValue;      // sizeof 04h    offset 2Ch
 
+    zDefineInheritableCtor( zCVideoPlayer ) {}
     void zCVideoPlayer_OnInit()           zCall( 0x004691A0 );
     zSTRING GetVideoFilename()            zCall( 0x0043B410 );
     zCVideoPlayer()                       zInit( zCVideoPlayer_OnInit() );

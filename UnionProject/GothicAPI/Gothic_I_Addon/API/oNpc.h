@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ONPC_H__VER1__
@@ -270,7 +270,7 @@ namespace Gothic_I_Addon {
     int m_value;              // sizeof 04h    offset 2Ch
 
     void oCNpcTalent_OnInit()                                           zCall( 0x006BA650 );
-    oCNpcTalent()                                                       zInit( oCNpcTalent_OnInit() );
+    oCNpcTalent() : zCtor( zCObject )                                   zInit( oCNpcTalent_OnInit() );
     static zCObject* _CreateNewInstance()                               zCall( 0x006BA4D0 );
     static void CreateTalentList( zCArray<oCNpcTalent*>* )              zCall( 0x006BA800 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x006BA640 );
@@ -717,7 +717,7 @@ namespace Gothic_I_Addon {
     void RemoveOverlay( zSTRING const& )                                                         zCall( 0x006BB620 );
     void SetModelScale( zVEC3 const& )                                                           zCall( 0x006BB830 );
     void SetFatness( float )                                                                     zCall( 0x006BB910 );
-    oCNpc()                                                                                      zInit( oCNpc_OnInit() );
+    oCNpc() : zCtor( oCVob )                                                                     zInit( oCNpc_OnInit() );
     void CleanUp()                                                                               zCall( 0x006BC5A0 );
     void DeleteHumanAI()                                                                         zCall( 0x006BD6D0 );
     zSTRING GetGuildName()                                                                       zCall( 0x006BD720 );

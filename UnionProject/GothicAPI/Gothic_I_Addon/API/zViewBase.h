@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZVIEW_BASE_H__VER1__
@@ -10,6 +10,7 @@ namespace Gothic_I_Addon {
   class zCViewBase {
   public:
 
+    zDefineInheritableCtor( zCViewBase ) {}
     void zCViewBase_OnInit()                                      zCall( 0x007952F0 );
     zCViewBase()                                                  zInit( zCViewBase_OnInit() );
     ~zCViewBase()                                                 zCall( 0x00795380 );

@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OWORLD_H__VER1__
@@ -28,7 +28,7 @@ namespace Gothic_I_Addon {
     void oCWorld_OnInit()                                                zCall( 0x0070D630 );
     zSTRING GetWorldName()                                               zCall( 0x0042B950 );
     zSTRING GetWorldFilename()                                           zCall( 0x006620A0 );
-    oCWorld()                                                            zInit( oCWorld_OnInit() );
+    oCWorld() : zCtor( zCWorld )                                         zInit( oCWorld_OnInit() );
     oCVob* CreateVob_novt( zTVobType, zSTRING const& )                   zCall( 0x0070DB60 );
     void ClearNpcPerceptionVobLists()                                    zCall( 0x0070F180 );
     void __fastcall InsertInLists( zCVob* )                              zCall( 0x0070F1C0 );

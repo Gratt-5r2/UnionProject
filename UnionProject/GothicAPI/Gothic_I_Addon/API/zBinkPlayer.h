@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZBINK_PLAYER_H__VER1__
@@ -24,8 +24,9 @@ namespace Gothic_I_Addon {
     RECT mSourceRect;     // sizeof 10h    offset 60h
     RECT mTargetRect;     // sizeof 10h    offset 70h
 
+    zDefineInheritableCtor( zCBinkPlayer ) : zCtor( zCVideoPlayer ) {}
     void zCBinkPlayer_OnInit()               zCall( 0x0043F0C0 );
-    zCBinkPlayer()                           zInit( zCBinkPlayer_OnInit() );
+    zCBinkPlayer() : zCtor( zCVideoPlayer )  zInit( zCBinkPlayer_OnInit() );
     long GetPixelFormat( zTRndSurfaceDesc& ) zCall( 0x00441AF0 );
     void SetFullscreen( int, zSTRING )       zCall( 0x00441D60 );
     virtual ~zCBinkPlayer()                  zCall( 0x0043F230 );

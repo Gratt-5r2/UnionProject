@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZARCHIVER_GENERIC_H__VER3__
@@ -47,7 +47,7 @@ namespace Gothic_II_Addon {
     int warnWrongEntryOrder;                                      // sizeof 04h    offset B8h
 
     void zCArchiverGeneric_OnInit()                                                                    zCall( 0x00521E30 );
-    zCArchiverGeneric()                                                                                zInit( zCArchiverGeneric_OnInit() );
+    zCArchiverGeneric() : zCtor( zCArchiver )                                                          zInit( zCArchiverGeneric_OnInit() );
     void DebugMessage( zSTRING const& )                                                                zCall( 0x005222F0 );
     void CheckObjectListSize( int )                                                                    zCall( 0x00525A50 );
     static zCObject* _CreateNewInstance()                                                              zCall( 0x00521CC0 );

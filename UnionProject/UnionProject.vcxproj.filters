@@ -2568,7 +2568,7 @@
     <ClInclude Include="GothicAPI\Gothic_II_Addon\API\zVideoPlayer.h">
       <Filter>Gothic API\G2A\API\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="GothicAPI\Gothic_II_Addon\API\zview.h">
+    <ClInclude Include="GothicAPI\Gothic_II_Addon\API\zView.h">
       <Filter>Gothic API\G2A\API\Engine</Filter>
     </ClInclude>
     <ClInclude Include="GothicAPI\Gothic_II_Addon\API\zViewBase.h">

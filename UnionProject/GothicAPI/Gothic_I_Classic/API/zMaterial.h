@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZMATERIAL_H__VER0__
@@ -79,9 +79,9 @@ namespace Gothic_I_Classic {
     void zCMaterial_OnInit( zSTRING const& )                            zCall( 0x0054D0A0 );
     void zCMaterial_OnInit( zCMaterial const& )                         zCall( 0x0054D160 );
     zSTRING const& GetName() const                                      zCall( 0x00549250 );
-    zCMaterial()                                                        zInit( zCMaterial_OnInit() );
-    zCMaterial( zSTRING const& a0 )                                     zInit( zCMaterial_OnInit( a0 ));
-    zCMaterial( zCMaterial const& a0 )                                  zInit( zCMaterial_OnInit( a0 ));
+    zCMaterial() : zCtor( zCObject )                                    zInit( zCMaterial_OnInit() );
+    zCMaterial( zSTRING const& a0 ) : zCtor( zCObject )                 zInit( zCMaterial_OnInit( a0 ));
+    zCMaterial( zCMaterial const& a0 ) : zCtor( zCObject )              zInit( zCMaterial_OnInit( a0 ));
     zCMaterial& operator =( zCMaterial const& )                         zCall( 0x0054D210 );
     void InitThisByMaterial( zCMaterial const& )                        zCall( 0x0054D2F0 );
     void InitValues()                                                   zCall( 0x0054D3C0 );

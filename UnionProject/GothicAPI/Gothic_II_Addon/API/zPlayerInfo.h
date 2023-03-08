@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZPLAYER_INFO_H__VER3__
@@ -28,6 +28,7 @@ namespace Gothic_II_Addon {
       unsigned long reserved : 22; // sizeof 16h    offset bit
     };
 
+    zDefineInheritableCtor( zCPlayerInfo ) {}
     void zCPlayerInfo_OnInit()                          zCall( 0x00467820 );
     zSTRING GetName() const                             zCall( 0x00459E60 );
     zCPlayerInfo()                                      zInit( zCPlayerInfo_OnInit() );

@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZAI_H__VER3__
@@ -14,7 +14,8 @@ namespace Gothic_II_Addon {
   public:
     zCLASS_DECLARATION( zCAIBase )
 
-    zCAIBase() {}
+    zDefineInheritableCtor( zCAIBase ) : zCtor( zCObject ) {}
+    zCAIBase() : zCtor( zCObject ) {}
     virtual zCClassDef* _GetClassDef() const                           zCall( 0x0048BD20 );
     virtual ~zCAIBase()                                                zCall( 0x0048BE50 );
     virtual void DoAI( zCVob*, int& )                                  zPureCall;
@@ -38,7 +39,7 @@ namespace Gothic_II_Addon {
     int slideSoundHandle; // sizeof 04h    offset 24h
     char slideSoundOn;    // sizeof 01h    offset 28h
 
-    zCAIBaseSound() {}
+    zCAIBaseSound() : zCtor( zCAIBase ) {}
     void RemoveSlideSound()                                             zCall( 0x0050C120 );
     void CheckSlideSound( zCVob* )                                      zCall( 0x0050C140 );
     void StartDefaultCollisionSound( zCVob*, zCCollisionReport const& ) zCall( 0x0050C1D0 );

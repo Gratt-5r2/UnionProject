@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZPARTICLE_H__VER1__
@@ -232,8 +232,9 @@ namespace Gothic_I_Addon {
     zCQuadMark* quadMark;                      // sizeof 04h    offset 94h
     zTBBox3D quadMarkBBox3DWorld;              // sizeof 18h    offset 98h
 
+    zDefineInheritableCtor( zCParticleFX ) : zCtor( zCVisual ) {}
     void zCParticleFX_OnInit()                                          zCall( 0x005A8760 );
-    zCParticleFX()                                                      zInit( zCParticleFX_OnInit() );
+    zCParticleFX() : zCtor( zCVisual )                                  zInit( zCParticleFX_OnInit() );
     void InitEmitterVars()                                              zCall( 0x005A9320 );
     void FreeParticles()                                                zCall( 0x005A9340 );
     void RemoveEmitter()                                                zCall( 0x005A9700 );

@@ -1,11 +1,10 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZMACRO_H__VER0__
 #define __ZMACRO_H__VER0__
 
 namespace Gothic_I_Classic {
-
 #define zRELEASE( obj ) { (obj)->Release(); obj = NULL; }
 #define zADDREF( obj )  (obj)->AddRef()
 #define zNEW( obj ) new obj
@@ -174,6 +173,15 @@ namespace Gothic_I_Classic {
     return new className;                                                                     \
   }
 
+#if defined(__cplusplus) && __cplusplus > 199711L
+#define InheritableInterfaceObject zIInheritableInterfaceObject&&
+#else
+#define zIInheritableInterfaceObject zIInheritableInterfaceObject
+#endif
+
+  struct zIInheritableInterfaceObject {};
+#define zDefineInheritableCtor(className) className(InheritableInterfaceObject) 
+#define zCtor(baseClassName) baseClassName(zIInheritableInterfaceObject())
 } // namespace Gothic_II_Addon
 
 #endif // __ZMACRO_H__VER0__

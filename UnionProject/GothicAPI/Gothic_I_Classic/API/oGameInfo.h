@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OGAME_INFO_H__VER0__
@@ -13,7 +13,7 @@ namespace Gothic_I_Classic {
   public:
 
     void oCGameInfo_OnInit()                      zCall( 0x00423450 );
-    oCGameInfo()                                  zInit( oCGameInfo_OnInit() );
+    oCGameInfo() : zCtor( zCGameInfo )            zInit( oCGameInfo_OnInit() );
     virtual ~oCGameInfo()                         zCall( 0x00423620 );
     virtual void Init()                           zCall( 0x00423630 );
     virtual void Pack( zCBuffer&, unsigned char ) zCall( 0x004236F0 );

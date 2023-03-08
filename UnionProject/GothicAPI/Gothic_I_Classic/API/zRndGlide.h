@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZRND_GLIDE_H__VER0__
@@ -37,7 +37,7 @@ namespace Gothic_I_Classic {
     int chromaTex;
     void* palette;
 
-    zCTex_RndGlide() {}
+    zCTex_RndGlide() : zCtor( zCTexture ) {}
 
     // static properties
     static zCList<zCTex_RndGlide>& texMem;
@@ -104,7 +104,7 @@ namespace Gothic_I_Classic {
     int lightMapsRendered;
     zTRnd_DeviceInfo deviceInfo;
 
-    zCRnd_Glide() {}
+    zCRnd_Glide() : zCtor( zCRenderer ) {}
 
     // user API
     #include "zCRnd_Glide.inl"

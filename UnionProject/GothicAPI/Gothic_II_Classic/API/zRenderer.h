@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZRENDERER_H__VER2__
@@ -225,6 +225,7 @@ namespace Gothic_II_Classic {
     zCRndAlphaSortObject* nextSortObject; // sizeof 04h    offset 04h
     float zvalue;                         // sizeof 04h    offset 08h
 
+    zDefineInheritableCtor( zCRndAlphaSortObject ) {}
     zCRndAlphaSortObject() {}
     virtual ~zCRndAlphaSortObject() zCall( 0x00525E90 );
     virtual void Draw( int )        zPureCall;
@@ -353,6 +354,7 @@ namespace Gothic_II_Classic {
     int vid_gsize;                   // sizeof 04h    offset 2Ch
     int vid_bsize;                   // sizeof 04h    offset 30h
 
+    zDefineInheritableCtor( zCRenderer ) {}
     zCRenderer() {}
     zTRnd_AlphaBlendFunc AlphaBlendFuncStringToType( zSTRING const& ) const                            zCall( 0x005CCD00 );
     zSTRING AlphaBlendFuncTypeToString( zTRnd_AlphaBlendFunc ) const                                   zCall( 0x005CCDF0 );

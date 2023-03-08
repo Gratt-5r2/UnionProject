@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZSESSION_H__VER0__
@@ -16,8 +16,9 @@ namespace Gothic_I_Classic {
     zCVob* camVob;      // sizeof 04h    offset 14h
     zCView* viewport;   // sizeof 04h    offset 18h
 
+    zDefineInheritableCtor( zCSession ) : zCtor( zCInputCallback ) {}
     void zCSession_OnInit()                                                      zCall( 0x005B7230 );
-    zCSession()                                                                  zInit( zCSession_OnInit() );
+    zCSession() : zCtor( zCInputCallback )                                       zInit( zCSession_OnInit() );
     virtual ~zCSession()                                                         zCall( 0x005B72E0 );
     virtual void Init()                                                          zCall( 0x005B73F0 );
     virtual void Done()                                                          zCall( 0x005B7330 );

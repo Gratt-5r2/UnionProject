@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZVISUAL_H__VER1__
@@ -44,8 +44,9 @@ namespace Gothic_I_Addon {
     float lodFarDistance;         // sizeof 04h    offset 2Ch
     float lodNearFadeOutDistance; // sizeof 04h    offset 30h
 
+    zDefineInheritableCtor( zCVisual ) : zCtor( zCObject ) {}
     void zCVisual_OnInit()                                                     zCall( 0x005F96C0 );
-    zCVisual()                                                                 zInit( zCVisual_OnInit() );
+    zCVisual() : zCtor( zCObject )                                             zInit( zCVisual_OnInit() );
     void AddNextLODVisual( zCVisual* )                                         zCall( 0x005F9890 );
     void AddEndLODVisual( zCVisual* )                                          zCall( 0x005F98C0 );
     static void InitVisualSystem()                                             zCall( 0x005F9970 );
@@ -83,7 +84,8 @@ namespace Gothic_I_Addon {
   public:
     zCLASS_DECLARATION( zCVisualAnimate )
 
-    zCVisualAnimate() {}
+    zDefineInheritableCtor( zCVisualAnimate ) : zCtor( zCVisual ) {}
+    zCVisualAnimate() : zCtor( zCVisual ) {}
     virtual zCClassDef* _GetClassDef() const        zCall( 0x00575170 );
     virtual ~zCVisualAnimate()                      zCall( 0x00575340 );
     virtual int Render( zTRenderContext& )          zPureCall;
@@ -111,7 +113,7 @@ namespace Gothic_I_Addon {
     int decal2Sided;           // sizeof 04h    offset 48h
 
     void zCDecal_OnInit()                                               zCall( 0x005597A0 );
-    zCDecal()                                                           zInit( zCDecal_OnInit() );
+    zCDecal() : zCtor( zCVisual )                                       zInit( zCDecal_OnInit() );
     void SetTexture( zSTRING& )                                         zCall( 0x00559BE0 );
     void SetTexture( zCTexture* )                                       zCall( 0x00559BF0 );
     void SetDecalDim( float, float )                                    zCall( 0x00559C00 );
@@ -174,7 +176,7 @@ namespace Gothic_I_Addon {
     void zCMesh_OnInit()                                                                     zCall( 0x00567EC0 );
     void LODRecalcEdge( zTLODEdge&, zCArraySort<zCPolygon*>& )                               zCall( 0x0053F620 );
     void LODGenerate( zCArraySort<zCPolygon*>&, zCArraySort<zCPolygon*>& )                   zCall( 0x0053FE30 );
-    zCMesh()                                                                                 zInit( zCMesh_OnInit() );
+    zCMesh() : zCtor( zCVisual )                                                             zInit( zCMesh_OnInit() );
     void DeleteAll()                                                                         zCall( 0x00568370 );
     zCVertex* VertexInMesh( zVEC3 const& )                                                   zCall( 0x005692D0 );
     void AllocVerts( int )                                                                   zCall( 0x005693A0 );

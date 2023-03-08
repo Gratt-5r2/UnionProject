@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OSYS_INFO_H__VER2__
@@ -25,15 +25,15 @@ namespace Gothic_II_Classic {
     float scoreSnd;    // sizeof 04h    offset 98h
     float score;       // sizeof 04h    offset 9Ch
 
-    void oCSystemInfo_OnInit()          zCall( 0x00439420 );
-    oCSystemInfo()                      zInit( oCSystemInfo_OnInit() );
-    float GetGraphicsBonus()            zCall( 0x0043ABC0 );
-    float GetSoundBonus()               zCall( 0x0043AD00 );
-    zSTRING GetScoreDescr( float )      zCall( 0x0043AD10 );
-    virtual ~oCSystemInfo()             zCall( 0x004394B0 );
-    virtual void AnalyseNow()           zCall( 0x004394C0 );
-    virtual void ScoreNow()             zCall( 0x00439DC0 );
-    virtual void ResetSettings( float ) zCall( 0x004394D0 );
+    void oCSystemInfo_OnInit()             zCall( 0x00439420 );
+    oCSystemInfo() : zCtor( zCSystemInfo ) zInit( oCSystemInfo_OnInit() );
+    float GetGraphicsBonus()               zCall( 0x0043ABC0 );
+    float GetSoundBonus()                  zCall( 0x0043AD00 );
+    zSTRING GetScoreDescr( float )         zCall( 0x0043AD10 );
+    virtual ~oCSystemInfo()                zCall( 0x004394B0 );
+    virtual void AnalyseNow()              zCall( 0x004394C0 );
+    virtual void ScoreNow()                zCall( 0x00439DC0 );
+    virtual void ResetSettings( float )    zCall( 0x004394D0 );
 
     // user API
     #include "oCSystemInfo.inl"

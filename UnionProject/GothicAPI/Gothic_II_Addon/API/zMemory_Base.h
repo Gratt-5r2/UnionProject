@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZMEMORY__BASE_H__VER3__
@@ -56,6 +56,7 @@ namespace Gothic_II_Addon {
   class zCMalloc {
   public:
 
+    zDefineInheritableCtor( zCMalloc ) {}
     zCMalloc() {}
     virtual ~zCMalloc()                                                 zCall( 0x00565F00 );
     virtual void* Malloc( unsigned int )                                zPureCall;

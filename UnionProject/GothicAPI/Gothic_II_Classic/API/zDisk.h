@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZDISK_H__VER2__
@@ -99,6 +99,7 @@ namespace Gothic_II_Classic {
     int buffering;    // sizeof 04h    offset 08h
     zCBuffer* buffer; // sizeof 04h    offset 0Ch
 
+    zDefineInheritableCtor( zFILE ) {}
     void zFILE_OnInit()                                           zCall( 0x004428C0 );
     void zFILE_OnInit( zSTRING const& )                           zCall( 0x00442900 );
     zFILE()                                                       zInit( zFILE_OnInit() );
@@ -181,7 +182,7 @@ namespace Gothic_II_Classic {
     static zSTRING& s_physPathString;
     static zSTRING& s_rootDirString;
     static bool& s_initialized;
-    static zCBuffer**& bufferList;
+    static zCBuffer** bufferList;
     static int*& bufferFlag;
 
     // user API
@@ -203,12 +204,13 @@ namespace Gothic_II_Classic {
     _finddata32i64_t_vc6 find_fileinfo; // sizeof 120h   offset 98h
     long find_handle;                   // sizeof 04h    offset 1B8h
 
+    zDefineInheritableCtor( zFILE_FILE ) : zCtor( zFILE ) {}
     void zFILE_FILE_OnInit()                                      zCall( 0x004429A0 );
     void zFILE_FILE_OnInit( zSTRING const& )                      zCall( 0x00442E20 );
     int HandleError( zSTRING const&, zSTRING const&, int )        zCall( 0x00442440 );
     void Init( zSTRING const& )                                   zCall( 0x00442930 );
-    zFILE_FILE()                                                  zInit( zFILE_FILE_OnInit() );
-    zFILE_FILE( zSTRING const& a0 )                               zInit( zFILE_FILE_OnInit( a0 ));
+    zFILE_FILE() : zCtor( zFILE )                                 zInit( zFILE_FILE_OnInit() );
+    zFILE_FILE( zSTRING const& a0 ) : zCtor( zFILE )              zInit( zFILE_FILE_OnInit( a0 ));
     void SetCompletePath()                                        zCall( 0x00444D30 );
     zSTRING& SlashConvert( zSTRING& )                             zCall( 0x00445EC0 );
     static bool InitFileSystem()                                  zCall( 0x00447FB0 );

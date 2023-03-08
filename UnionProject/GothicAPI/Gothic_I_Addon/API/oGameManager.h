@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OGAME_MANAGER_H__VER1__
@@ -33,7 +33,7 @@ namespace Gothic_I_Addon {
     int playTime;                           // sizeof 04h    offset 88h
 
     void CGameManager_OnInit()                                      zCall( 0x004262E0 );
-    CGameManager()                                                  zInit( CGameManager_OnInit() );
+    CGameManager() : zCtor( zCInputCallback )                       zInit( CGameManager_OnInit() );
     void Tool_ConvertData()                                         zCall( 0x00426710 );
     void Init( HWND__*& )                                           zCall( 0x00426B20 );
     void Done()                                                     zCall( 0x00427310 );

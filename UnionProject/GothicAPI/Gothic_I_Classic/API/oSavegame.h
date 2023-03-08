@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __OSAVEGAME_H__VER0__
@@ -30,8 +30,8 @@ namespace Gothic_I_Classic {
     zSTRING GetName()                                                   zCall( 0x00428A60 );
     zSTRING GetWorldName()                                              zCall( 0x00428AB0 );
     zSTRING GetSaveTime()                                               zCall( 0x0042C7E0 );
-    oCSavegameInfo()                                                    zInit( oCSavegameInfo_OnInit() );
-    oCSavegameInfo( int a0 )                                            zInit( oCSavegameInfo_OnInit( a0 ));
+    oCSavegameInfo() : zCtor( zCObject )                                zInit( oCSavegameInfo_OnInit() );
+    oCSavegameInfo( int a0 ) : zCtor( zCObject )                        zInit( oCSavegameInfo_OnInit( a0 ));
     void Init()                                                         zCall( 0x004340D0 );
     int DoesSavegameExist()                                             zCall( 0x004340F0 );
     void UpdateThumbPic( zCTextureConvert* )                            zCall( 0x00434100 );

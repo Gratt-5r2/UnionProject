@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZMUSIC_CTRL_H__VER1__
@@ -19,7 +19,7 @@ namespace Gothic_I_Addon {
 
     zSTRING sgt; // sizeof 14h    offset 2Ch
 
-    zCEventMusicControler() {}
+    zCEventMusicControler() : zCtor( zCEventMessage ) {}
     static zCObject* _CreateNewInstance()                               zCall( 0x00748230 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x00748410 );
     virtual void Archive( zCArchiver& )                                 zCall( 0x007485E0 );
@@ -40,7 +40,7 @@ namespace Gothic_I_Addon {
     zCLASS_DECLARATION( zCMusicControler )
 
     void zCMusicControler_OnInit()                                      zCall( 0x00748640 );
-    zCMusicControler()                                                  zInit( zCMusicControler_OnInit() );
+    zCMusicControler() : zCtor( zCEffect )                              zInit( zCMusicControler_OnInit() );
     static zCObject* _CreateNewInstance()                               zCall( 0x00747F80 );
     virtual zCClassDef* _GetClassDef() const                            zCall( 0x00748020 );
     virtual ~zCMusicControler()                                         zCall( 0x00748690 );

@@ -1,4 +1,4 @@
-// Supported with union (c) 2018-2022 Union team
+﻿// Supported with union (c) 2018-2022 Union team
 // Licence: GNU General Public License
 
 #ifndef __ZCOLLISION_OBJECT_H__VER1__
@@ -38,6 +38,7 @@ namespace Gothic_I_Addon {
       unsigned char m_bHintRotation    : 1; // sizeof 01h    offset bit
     };
 
+    zDefineInheritableCtor( zCCollisionObject ) {}
     zCCollisionObject() {}
     void __fastcall CalcIntermediateTrafo( float, zMAT4& )                                                           zCall( 0x00550180 );
     static zCCollisionObject* _CreateNewInstance()                                                                   zCall( 0x0054FF00 );
