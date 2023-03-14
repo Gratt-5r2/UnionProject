@@ -822,8 +822,6 @@ namespace Gothic_I_Addon {
   template <class T>
   class zList {
   public:
-    zMEMPOOL_DECLARATION_TEMPLATE( zCList, 0x008B9310 );
-
     int(*Compare)(T* ele1, T* ele2);
     int count;
     T* last;
